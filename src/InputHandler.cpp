@@ -33,12 +33,12 @@ void InputHandler::assignEntry(std::string newEntry)
     currentEntry[currentEntrySize + 1] = 0;
 };
 
-void InputHandler::processInput(int input)
+bool InputHandler::processInput(int input)
 {
     if(input == 10)
     {
         initializeEntry();
-        return;
+        return false;
     }
 
     if(input == KEY_UP)
@@ -58,4 +58,5 @@ void InputHandler::processInput(int input)
     
     printw(currentEntry);
     refresh();
+    return true;
 };

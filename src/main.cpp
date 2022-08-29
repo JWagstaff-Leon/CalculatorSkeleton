@@ -11,32 +11,31 @@
 #include <ncurses.h>
 
 #include "InputHandler.hpp"
+#include "Path.hpp"
 
-void setupInputContext();
-void closeInputContext();
+void setupNcurses();
+void closeNcurses();
 
 int main() 
 {
     InputHandler inputHandler;
-    setupInputContext();
-    while(true)
-    {
-        int input = getch();
-        inputHandler.processInput(input);
-    }
-    closeInputContext();
+    Path activeDirectory;
+    setupNcurses();
+    printw(activeDirectory.getPathString().c_str());
+    while(inputHandler.processInput(getch()));
+    closeNcurses();
     return 0;
 };
 
-void setupInputContext()
+void setupNcurses()
 {
-    initscr();              // open ncurses
-    raw();                  // setup ncurses
-    noecho();               // "
-    keypad(stdscr, TRUE);   // "
+    initscr();
+    raw();
+    noecho();
+    keypad(stdscr, TRUE);
 };
 
-void closeInputContext()
+void closeNcurses()
 {
-    endwin(); // close ncurses
+    endwin();
 };
