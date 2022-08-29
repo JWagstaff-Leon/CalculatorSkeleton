@@ -2,14 +2,36 @@
 /**
  *  @file   main.cpp
  *  @date   Fri April 16 2021
- *  @brief  Entry Point of Calculator
+ *  @brief  Entry Point of Shell
  */
 ////////////////////////////////////////////////////////////////////////////
 
-#include "Calculator.h"
+#include <iostream>
+#include <stdio.h>
+#include <ncurses>
+
+void setupInputContext();
+void closeInputContext();
 
 int main() 
 {
-    // Fill in or change code here as necessary.  See also Calculator.cpp
-    std::cout << "Welcome to the Calculator C++ learning project." << std::endl;
-}
+    setupInputContext();
+
+    
+
+    closeInputContext();
+    return 0;
+};
+
+void setupInputContext()
+{
+    initscr();              // open ncurses
+    raw();                  // setup ncurses
+    noecho();               // "
+    keypad(stdscr, TRUE);   // "
+};
+
+void closeInputContext()
+{
+    endwin(); // close ncurses
+};
