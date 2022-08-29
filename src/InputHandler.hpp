@@ -1,18 +1,21 @@
 #ifndef INPUT_HANDLER_H
 #define INPUT_HANDLER_H
 
-#include <unordered_map>
+#include <string>
 
 class InputHandler
 {
     private:
-        std::unordered_map<int, void (*)()> inputMap;
-            
+        char currentEntry[256];
+        int currentEntrySize = 0;
+
+        void initializeEntry();
+        void assignEntry(std::string);
+
     public:
         InputHandler();
         ~InputHandler();
 
-        bool mapInput(int input, void (*callback)());
         void processInput(int input);
 };
 

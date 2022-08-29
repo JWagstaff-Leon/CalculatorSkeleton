@@ -8,17 +8,22 @@
 
 #include <iostream>
 #include <stdio.h>
-#include <ncurses>
+#include <ncurses.h>
+
+#include "InputHandler.hpp"
 
 void setupInputContext();
 void closeInputContext();
 
 int main() 
 {
+    InputHandler inputHandler;
     setupInputContext();
-
-    
-
+    while(true)
+    {
+        int input = getch();
+        inputHandler.processInput(input);
+    }
     closeInputContext();
     return 0;
 };
