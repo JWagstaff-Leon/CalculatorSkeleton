@@ -28,18 +28,19 @@ void Path::setPath(std::deque<std::string> path)
 
 std::string Path::getPathString()
 {
-    std::string pathString = "~";
+    std::string pathString = "~/";
     for(std::deque<std::string>::iterator it = currentPath.begin(); it != currentPath.end(); it++)
     {
-        pathString += "/";
         pathString += *it;
+        pathString += "/";
     }
     return pathString;
 };
 
 std::vector<std::string> Path::listDirectoryContents()
 {
-    
+    std::vector<std::string> temp;
+    return temp;
 };
 
 void Path::navigateUp()

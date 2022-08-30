@@ -12,6 +12,7 @@
 
 #include "InputHandler.hpp"
 #include "Path.hpp"
+#include "FileSystemInterfacer.hpp"
 
 void setupNcurses();
 void closeNcurses();
@@ -20,6 +21,7 @@ int main()
 {
     InputHandler inputHandler;
     Path activeDirectory;
+    FileSystemInterfacer::createFile("test", "test.txt");
     setupNcurses();
     printw(activeDirectory.getPathString().c_str());
     while(inputHandler.processInput(getch()));

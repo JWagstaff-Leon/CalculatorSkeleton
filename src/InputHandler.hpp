@@ -16,7 +16,7 @@ class InputHandler
         InputHandler();
         ~InputHandler();
 
-        void processInput(int input);
+        bool processInput(int input);
 };
 
 #endif
