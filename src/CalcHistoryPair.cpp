@@ -13,10 +13,7 @@ int findPrecisionFor(int number, int decimalDigits = 4)
 
 
 CalcHistoryPair::CalcHistoryPair(std::string equation, double result)
-{
-    equation_ = equation;
-    result_ = result;
-};
+: equation_{equation}, result_{result} {};
 
 
 
