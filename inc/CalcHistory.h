@@ -11,8 +11,8 @@
 class CalcHistory
 {
     public:
-        CalcHistory();
-        ~CalcHistory();
+        void initialzeFromFilePath(std::string filePath);
+        void saveToFilePath(std::string filePath);
 
         static std::string toString(const CalcHistory& calcHistory);
 
@@ -24,7 +24,6 @@ class CalcHistory
         bool isEmpty();
 
     private:
-        static const std::string filePath_;
         std::vector<CalcHistoryPair> entries_;
 
         friend std::ostream& operator << (std::ostream& sout, const CalcHistory& calcHistory);

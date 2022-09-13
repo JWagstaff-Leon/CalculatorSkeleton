@@ -131,9 +131,21 @@ void drawHistoryWindow(CalcHistoryTraverser &historyTraverser, WINDOW* historyWi
 
 
 
+
+void saveHistory(CalcHistory history)
+{
+    std::string historyFilePath = std::string(getenv("HOME")) + "/calc/history.txt";
+    history.saveToFilePath(historyFilePath);
+};
+
+
+
+
 void repl()
 {
+    std::string historyFilePath = std::string(getenv("HOME")) + "/calc/history.txt";
     CalcHistory history;
+    history.initialzeFromFilePath(historyFilePath);
     CalcHistoryTraverser historyTraverser(&history);
     std::string equation = "";
 
@@ -209,6 +221,7 @@ void repl()
       
         if (equation.substr(0, 4) == "quit" || equation.substr(0,4) == "exit")
         {
+            saveHistory(history);
             break;
         }
         if (equation.substr(0,4) == "help")

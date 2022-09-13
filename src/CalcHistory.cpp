@@ -1,15 +1,17 @@
 #include "CalcHistory.h"
 
+#include <string>
 #include <fstream>
 #include <sstream>
 
-const std::string CalcHistory::filePath_ = std::string(getenv("HOME")) + "/calc/history.txt";
+#include "CalcHistoryPair.h"
 
 
-
-CalcHistory::CalcHistory()
+// TODO use flat buffer
+void CalcHistory::initialzeFromFilePath(std::string filePath)
 {
-    std::ifstream fin(filePath_);
+    entries_.clear();
+    std::ifstream fin(filePath);
     while (!fin.eof() && !fin.fail())
     {
         std::string equation;
@@ -34,9 +36,9 @@ CalcHistory::CalcHistory()
 
 
 
-CalcHistory::~CalcHistory()
+void CalcHistory::saveToFilePath(std::string filePath)
 {
-    std::ofstream fout(filePath_);
+    std::ofstream fout(filePath);
     if (!fout.fail())
     {
         fout << *this;
