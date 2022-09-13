@@ -1,10 +1,11 @@
 #ifndef CALC_HISTORY_TRAVERSER_H
 #define CALC_HISTORY_TRAVERSER_H
 
-#include "CalcHistory.h"
-#include "CalcHistoryPair.h"
 #include <vector>
 #include <string>
+
+#include "CalcHistory.h"
+#include "CalcHistoryPair.h"
 
 class CalcHistoryTraverser
 {
@@ -23,8 +24,9 @@ class CalcHistoryTraverser
 
     private:
         CalcHistory* calcHistory_;
+
         std::vector<CalcHistoryPair>::iterator currentPosition_;
-        std::string currentInput_;
+        std::string                            currentInput_;
 };
 
 #endif

@@ -1,8 +1,12 @@
 #include "CalcHistoryTraverser.h"
 
+#include <memory>
+
+#include "CalcHistory.h"
+
 CalcHistoryTraverser::CalcHistoryTraverser(CalcHistory* calcHistory)
+: calcHistory_{calcHistory}
 {
-    calcHistory_ = calcHistory;
     reset();
 };
 
