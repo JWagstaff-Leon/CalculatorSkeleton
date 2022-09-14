@@ -19,14 +19,14 @@ class CalcHistoryTraverser
         void reset();
         void setCurrentInput(std::string);
 
-        std::vector<std::string> getHistoryStringWithBounds(int prevSize, int nextSize, int width);
-        std::vector<std::string> getHistoryStringWithBoundsAndResults(int prevSize, int nextSize, int width);
+        std::vector<std::string> getHistoryStringWithBounds(int prevSize, int nextSize, int width) const;
+        std::vector<std::string> getHistoryStringWithBoundsAndResults(int prevSize, int nextSize, int width) const;
 
     private:
         CalcHistory* calcHistory_;
 
-        std::vector<CalcHistoryPair>::iterator currentPosition_;
-        std::string                            currentInput_;
+        std::vector<CalcHistoryPair>::const_iterator currentPosition_;
+        std::string                                  currentInput_;
 };
 
 #endif

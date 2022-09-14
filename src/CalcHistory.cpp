@@ -36,7 +36,7 @@ void CalcHistory::initialzeFromFilePath(std::string filePath)
 
 
 
-void CalcHistory::saveToFilePath(std::string filePath)
+void CalcHistory::saveToFilePath(std::string filePath) const
 {
     std::ofstream fout(filePath);
     if (!fout.fail())
@@ -79,21 +79,21 @@ std::ostream& operator << (std::ostream& sout, const CalcHistory& calcHistory)
 
 
 
-std::vector<CalcHistoryPair>::iterator CalcHistory::newest()
+std::vector<CalcHistoryPair>::const_iterator CalcHistory::newest() const
 {
-    return entries_.end();
+    return entries_.cend();
 };
 
 
 
-std::vector<CalcHistoryPair>::iterator CalcHistory::oldest()
+std::vector<CalcHistoryPair>::const_iterator CalcHistory::oldest() const
 {
-    return entries_.begin();
+    return entries_.cbegin();
 };
 
 
 
-bool CalcHistory::isEmpty()
+bool CalcHistory::isEmpty() const
 {
     return entries_.empty();
 };

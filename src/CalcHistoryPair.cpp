@@ -26,21 +26,21 @@ std::ostream& operator << (std::ostream& sout, const CalcHistoryPair& calcHistor
 
 
 
-std::string CalcHistoryPair::getEquation()
+std::string CalcHistoryPair::getEquation() const
 {
     return equation_;
 };
 
 
 
-double CalcHistoryPair::getResult()
+double CalcHistoryPair::getResult() const
 {
     return result_;
 };
 
 
 
-std::string CalcHistoryPair::getResultString()
+std::string CalcHistoryPair::getResultString() const
 {
     std::stringstream ss;
     ss << result_;
